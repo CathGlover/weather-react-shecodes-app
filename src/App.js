@@ -11,7 +11,8 @@ export default function App() {
         <a href="https://github.com/CathGlover/weather-react-shecodes-app">
           Github
         </a>{" "}
-        hosted on <a href="">Netlify</a>
+        hosted on{" "}
+        <a href="https://main--clever-paletas-3c5a88.netlify.app/">Netlify</a>
       </p>
     </div>
   );
