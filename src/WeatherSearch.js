@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./WeatherSearch.css";
 import FormattedDate from "./FormattedDate";
-
+import WeatherInfo from "./WeatherInfo";
 export default function WeatherSearch() {
   let [city, setCity] = useState(" ");
   const [weather, setWeather] = useState({});
@@ -17,7 +17,6 @@ export default function WeatherSearch() {
     let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=edf069311acf2bebo10f4bbbc53249t3&units=metric`;
     axios.get(url).then(displayWeather);
   }
-
   function displayWeather(response) {
     setLoaded(true);
     setWeather({
@@ -47,33 +46,9 @@ export default function WeatherSearch() {
 
   if (loaded) {
     return (
-      <div class="container">
+      <div className="container">
         {form}
-        <h1>
-          {weather.cities}, {weather.country}
-        </h1>
-        <div class="row">
-          <div class="col">
-            <img src={weather.icon} height="200" alt="weather icon" />
-          </div>
-          <div class="col">
-            <br />
-            <br />
-            <p>
-              <FormattedDate date={weather.date} />
-            </p>
-            <p>
-              <span className="text-capitalize description">
-                {weather.description}
-              </span>{" "}
-              | <span className="temperature">{weather.temperature}</span>
-              <span className="unit">°C</span>
-            </p>
-            <p>
-              Humidity: {weather.humidity}% | Wind: {weather.wind}km/h
-            </p>
-          </div>
-        </div>
+        <WeatherInfo data={weather} />
         <p>
           Open source code by Catherine Glover, available on{" "}
           <a href="https://github.com/CathGlover/weather-react-shecodes-app">
@@ -85,9 +60,13 @@ export default function WeatherSearch() {
       </div>
     );
   } else {
+    const url = `https://api.shecodes.io/weather/v1/forecast?query=Londons
+        &key=edf069311acf2bebo10f4bbbc53249t3&units=metric`;
+    axios.get(url).then(displayWeather);
     return (
       <div class="container">
         {form}
+
         <p>
           Opensource code by Catherine Glover, available on{" "}
           <a href="https://github.com/CathGlover/weather-react-shecodes-app">
