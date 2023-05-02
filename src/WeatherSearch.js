@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./WeatherSearch.css";
 
 export default function WeatherSearch() {
   let [city, setCity] = useState(" ");
@@ -20,37 +21,64 @@ export default function WeatherSearch() {
     console.log(response);
     setLoaded(true);
     setWeather({
-      temperature: response.data.daily[0].temperature.day,
-      wind: response.data.daily[0].wind.speed,
+      temperature: Math.round(response.data.daily[0].temperature.day),
+      wind: Math.round(response.data.daily[0].wind.speed),
       humidity: response.data.daily[0].temperature.humidity,
       description: response.data.daily[0].condition.description,
       icon: response.data.daily[0].condition.icon_url,
+      country: response.data.country,
     });
   }
 
   let form = (
     <form onSubmit={handleSubmit}>
-      <input type="search" placeholder="Enter a city" onChange={changeCity} />
-      <input type="submit" value="Search" />
+      <input
+        type="search"
+        className="search-bar"
+        placeholder="Enter a city"
+        onChange={changeCity}
+      />
+      <input type="submit" value="Search" className="search-button" />
     </form>
   );
 
   if (loaded) {
     return (
-      <div>
+      <div class="container">
         {form}
-        <ul>
-          <li>Temperature: {weather.temperature}°C</li>
-          <li>Humidity: {weather.humidity}%</li>
-          <li>Wind: {weather.wind}km/h</li>
-          <li>Description: {weather.description}</li>
-          <li>
-            <img src={weather.icon} alt="weather icon" />
-          </li>
-        </ul>
+        <h1>
+          {city}, {weather.country}
+        </h1>
+        <img src={weather.icon} height="200" alt="weather icon" />
+        <p>
+          {weather.description} | {weather.temperature}°C
+        </p>
+        <p>
+          Humidity: {weather.humidity}% | Wind: {weather.wind}km/h
+        </p>
+        <p>
+          Open source code by Catherine Glover, available on{" "}
+          <a href="https://github.com/CathGlover/weather-react-shecodes-app">
+            Github
+          </a>{" "}
+          hosted on{" "}
+          <a href="https://main--clever-paletas-3c5a88.netlify.app/">Netlify</a>
+        </p>
       </div>
     );
   } else {
-    return form;
+    return (
+      <div class="container">
+        {form}
+        <p>
+          Opensource code by Catherine Glover, available on{" "}
+          <a href="https://github.com/CathGlover/weather-react-shecodes-app">
+            Github
+          </a>{" "}
+          hosted on{" "}
+          <a href="https://main--clever-paletas-3c5a88.netlify.app/">Netlify</a>
+        </p>
+      </div>
+    );
   }
 }
