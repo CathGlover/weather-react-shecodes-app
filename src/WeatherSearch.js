@@ -27,6 +27,8 @@ export default function WeatherSearch() {
       description: response.data.daily[0].condition.description,
       icon: response.data.daily[0].condition.icon_url,
       country: response.data.country,
+      cities: response.data.city,
+      date: "Wednesday 17:00",
     });
   }
 
@@ -36,6 +38,7 @@ export default function WeatherSearch() {
         type="search"
         className="search-bar"
         placeholder="Enter a city"
+        autoFocus="on"
         onChange={changeCity}
       />
       <input type="submit" value="Search" className="search-button" />
@@ -47,15 +50,28 @@ export default function WeatherSearch() {
       <div class="container">
         {form}
         <h1>
-          {city}, {weather.country}
+          {weather.cities}, {weather.country}
         </h1>
-        <img src={weather.icon} height="200" alt="weather icon" />
-        <p>
-          {weather.description} | {weather.temperature}°C
-        </p>
-        <p>
-          Humidity: {weather.humidity}% | Wind: {weather.wind}km/h
-        </p>
+        <div class="row">
+          <div class="col">
+            <img src={weather.icon} height="200" alt="weather icon" />
+          </div>
+          <div class="col">
+            <br />
+            <br />
+            <p>{weather.date}</p>
+            <p>
+              <span className="text-capitalize description">
+                {weather.description}
+              </span>{" "}
+              | <span className="temperature">{weather.temperature}</span>
+              <span className="unit">°C</span>
+            </p>
+            <p>
+              Humidity: {weather.humidity}% | Wind: {weather.wind}km/h
+            </p>
+          </div>
+        </div>
         <p>
           Open source code by Catherine Glover, available on{" "}
           <a href="https://github.com/CathGlover/weather-react-shecodes-app">
