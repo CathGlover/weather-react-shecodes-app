@@ -5,6 +5,7 @@ import FormattedDate from "./FormattedDate";
 import ReactAnimatedWeather from "react-animated-weather";
 import WeatherIcon from "./WeatherIcon";
 import "./WeatherSearch.css";
+import WeatherTemperature from "./WeatherTemperature";
 
 export default function weatherInfo(props) {
   return (
@@ -23,13 +24,10 @@ export default function weatherInfo(props) {
             <br />
             <FormattedDate date={props.data.date} />
           </p>
-          <p>
-            <span className="text-capitalize description">
-              {props.data.description}
-            </span>{" "}
-            | <span className="temperature">{props.data.temperature}</span>
-            <span className="unit">°C</span>
-          </p>
+          <WeatherTemperature
+            description={props.data.description}
+            celsius={props.data.temperature}
+          />
           <p>
             Humidity: {props.data.humidity}% | Wind: {props.data.wind}km/h
           </p>
