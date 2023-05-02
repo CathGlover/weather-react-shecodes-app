@@ -17,6 +17,7 @@ export default function WeatherSearch() {
   }
 
   function displayWeather(response) {
+    console.log(response);
     setLoaded(true);
     setWeather({
       temperature: response.data.daily[0].temperature.day,
