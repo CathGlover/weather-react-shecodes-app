@@ -67,7 +67,6 @@ export default function WeatherSearch() {
     return (
       <div className="container">
         {form}
-
         <p>
           Opensource code by Catherine Glover, available on{" "}
           <a href="https://github.com/CathGlover/weather-react-shecodes-app">
