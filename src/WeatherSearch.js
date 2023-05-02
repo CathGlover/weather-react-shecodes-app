@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./WeatherSearch.css";
+import FormattedDate from "./FormattedDate";
 
 export default function WeatherSearch() {
   let [city, setCity] = useState(" ");
@@ -18,7 +19,6 @@ export default function WeatherSearch() {
   }
 
   function displayWeather(response) {
-    console.log(response);
     setLoaded(true);
     setWeather({
       temperature: Math.round(response.data.daily[0].temperature.day),
@@ -28,7 +28,7 @@ export default function WeatherSearch() {
       icon: response.data.daily[0].condition.icon_url,
       country: response.data.country,
       cities: response.data.city,
-      date: "Wednesday 17:00",
+      date: new Date(response.data.daily[0].time * 1000),
     });
   }
 
@@ -59,7 +59,9 @@ export default function WeatherSearch() {
           <div class="col">
             <br />
             <br />
-            <p>{weather.date}</p>
+            <p>
+              <FormattedDate date={weather.date} />
+            </p>
             <p>
               <span className="text-capitalize description">
                 {weather.description}
