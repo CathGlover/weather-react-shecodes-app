@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 import "./WeatherSearch.css";
-import FormattedDate from "./FormattedDate";
 import WeatherInfo from "./WeatherInfo";
+import ReactAnimatedWeather from "react-animated-weather";
+
 export default function WeatherSearch() {
   let [city, setCity] = useState(" ");
   const [weather, setWeather] = useState({});
@@ -24,7 +25,7 @@ export default function WeatherSearch() {
       wind: Math.round(response.data.daily[0].wind.speed),
       humidity: response.data.daily[0].temperature.humidity,
       description: response.data.daily[0].condition.description,
-      icon: response.data.daily[0].condition.icon_url,
+      icon: response.data.daily[0].condition.icon,
       country: response.data.country,
       cities: response.data.city,
       date: new Date(response.data.daily[0].time * 1000),
@@ -64,7 +65,7 @@ export default function WeatherSearch() {
         &key=edf069311acf2bebo10f4bbbc53249t3&units=metric`;
     axios.get(url).then(displayWeather);
     return (
-      <div class="container">
+      <div className="container">
         {form}
 
         <p>

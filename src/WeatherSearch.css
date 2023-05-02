@@ -29,3 +29,7 @@ body {
   border-color: grey;
   background-color: lightblue;
 }
+
+canvas {
+  height: 125px;
+}

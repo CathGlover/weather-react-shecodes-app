@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./WeatherSearch.css";
 import FormattedDate from "./FormattedDate";
+import ReactAnimatedWeather from "react-animated-weather";
+import WeatherIcon from "./WeatherIcon";
+import "./WeatherSearch.css";
 
 export default function weatherInfo(props) {
   return (
@@ -11,12 +14,13 @@ export default function weatherInfo(props) {
       </h1>
       <div className="row">
         <div className="col">
-          <img src={props.data.icon} height="200" alt="weather icon" />
+          <br />
+          <WeatherIcon code={props.data.icon} />
+          <br />
         </div>
         <div className="col">
-          <br />
-          <br />
           <p>
+            <br />
             <FormattedDate date={props.data.date} />
           </p>
           <p>
