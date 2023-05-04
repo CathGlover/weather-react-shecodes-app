@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import axios from "axios";
 import "./WeatherSearch.css";
 import FormattedDate from "./FormattedDate";
-import ReactAnimatedWeather from "react-animated-weather";
 import WeatherIcon from "./WeatherIcon";
 import "./WeatherSearch.css";
 import WeatherTemperature from "./WeatherTemperature";
+import WeatherForecast from "./WeatherForecast";
 
 export default function weatherInfo(props) {
   return (
@@ -31,6 +30,7 @@ export default function weatherInfo(props) {
           <p>
             Humidity: {props.data.humidity}% | Wind: {props.data.wind}km/h
           </p>
+          <WeatherForecast />
         </div>
       </div>
     </div>
