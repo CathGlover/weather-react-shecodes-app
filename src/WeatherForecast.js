@@ -6,9 +6,9 @@ import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function WeatherForecast(event) {
   let url = `https://api.shecodes.io/weather/v1/forecast?query=${event.data.data.cities}&key=edf069311acf2bebo10f4bbbc53249t3&units=metric`;
-  axios.get(url).then(handleResponse);
+  axios.get(url, { signal: AbortSignal.timeout(1) }).then(handleResponse);
 
-  const [forecast, setForecast] = useState(null);
+  const [forecast, setForecast] = useState({});
   const [loaded, setLoaded] = useState(false);
 
   function handleResponse(response) {
@@ -17,22 +17,20 @@ export default function WeatherForecast(event) {
     console.log(response);
   }
 
-  if (loaded) {
-    return (
-      <div className="WeatherForecast">
-        <div className="row">
-          {forecast.map(function (dailyForecast, index) {
-            if (index < 5 || index > 0) {
-              return (
-                <div className="col" key={index}>
-                  <WeatherForecastDay data={dailyForecast} />
-                </div>
-              );
-            }
-          })}
-          ;
-        </div>
+  return (
+    <div className="WeatherForecast">
+      <div className="row">
+        {forecast.map(function (dailyForecast, index) {
+          if (index < 5 || index > 0) {
+            return (
+              <div className="col" key={index}>
+                <WeatherForecastDay data={dailyForecast} />
+              </div>
+            );
+          }
+        })}
+        ;
       </div>
-    );
-  }
+    </div>
+  );
 }

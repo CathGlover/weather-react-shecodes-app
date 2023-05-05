@@ -16,8 +16,8 @@ export default function WeatherSearch() {
   function handleSubmit(event) {
     event.preventDefault();
     let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=edf069311acf2bebo10f4bbbc53249t3&units=metric`;
-    axios.get(url).then(displayWeather);
-  }
+    axios.get(url, { signal: AbortSignal.timeout(1) }).then(displayWeather);  }    
+
   function displayWeather(response) {
     setLoaded(true);
     setWeather({

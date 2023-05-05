@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import axios from "axios";
+import React from "react";
 
 export default function FormattedDate(props) {
   let days = ["Sun", "Mon", "Tues", "Weds", "Thurs", "Fri", "Sat"];
