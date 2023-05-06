@@ -2,8 +2,6 @@ import React from "react";
 import "./WeatherForecast.css";
 import WeatherIcon from "./WeatherIcon";
 export default function WeatherForecastDay(event) {
-  console.log(event.forecast);
-
   function createDate() {
     let date = new Date(event.forecast.time * 1000);
     let day = date.getDay();
