@@ -70,14 +70,14 @@ export default function WeatherSearch() {
     return (
       <div className="container">
         {form}
-        <p>
+        <footer>
           Open source code by Catherine Glover, available on{" "}
           <a href="https://github.com/CathGlover/weather-react-shecodes-app">
             Github
           </a>{" "}
           hosted on{" "}
           <a href="https://main--clever-paletas-3c5a88.netlify.app/">Netlify</a>
-        </p>
+        </footer>
       </div>
     );
   }

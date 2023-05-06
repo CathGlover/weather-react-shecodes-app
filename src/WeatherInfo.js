@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./WeatherSearch.css";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
@@ -10,7 +10,6 @@ import "moment-timezone";
 import WeatherForecast from "./WeatherForecast";
 
 export default function weatherInfo(props) {
-  console.log(props.allData);
   return (
     <div className="WeatherInfo">
       <h1>

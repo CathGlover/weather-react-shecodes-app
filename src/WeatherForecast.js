@@ -5,15 +5,12 @@ import "./WeatherForecast.css";
 import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function WeatherForecast(event) {
-  console.log(event.data.allData.data.daily);
-
   let forecast = event.data.allData.data.daily;
   return (
     <div className="WeatherForecast">
       <div className="row">
         <div className="col">
-          <div>
-          </div>
+          <div></div>
           <WeatherForecastDay forecast={forecast[1]} />
         </div>
         <div className="col">
@@ -24,6 +21,9 @@ export default function WeatherForecast(event) {
         </div>
         <div className="col">
           <WeatherForecastDay forecast={forecast[4]} />
+        </div>
+        <div className="col">
+          <WeatherForecastDay forecast={forecast[5]} />
         </div>
       </div>
     </div>
