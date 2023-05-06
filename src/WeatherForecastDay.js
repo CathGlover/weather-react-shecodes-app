@@ -11,10 +11,10 @@ export default function WeatherForecastDay(event) {
       </div>
       <span className="forecastTemperature">
         <span className="forecastTemperatureMax">
-          {event.forecast.temperature.maximum}
+          {Math.round(event.forecast.temperature.maximum)}°
         </span>
         <span className="forecastTemperatureMin">
-          {event.forecast.temperature.minimum}
+          {Math.round(event.forecast.temperature.minimum)}°
         </span>
       </span>
     </div>
