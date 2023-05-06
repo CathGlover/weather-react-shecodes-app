@@ -52,11 +52,10 @@ export default function WeatherSearch() {
       <div className="container">
         {form}
         <WeatherInfo data={weather} allData={allData} />
-       
       </div>
-    );
+    )
   } else {
-    const url = `https://api.shecodes.io/weather/v1/forecast?query=Londons
+    const url = `https://api.shecodes.io/weather/v1/forecast?query=London
         &key=edf069311acf2bebo10f4bbbc53249t3&units=metric`;
     axios.get(url).then(displayWeather);
     return <div className="container">{form}</div>;

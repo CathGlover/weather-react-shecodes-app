@@ -4,7 +4,6 @@ import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import "./WeatherSearch.css";
 import WeatherTemperature from "./WeatherTemperature";
-//import WeatherForecast from "./WeatherForecast";
 import Moment from "react-moment";
 import "moment-timezone";
 import WeatherForecast from "./WeatherForecast";

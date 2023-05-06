@@ -28,6 +28,7 @@ body {
 }
 
 .search-button {
+  width: 30%;
   margin: 10px;
   width: 15%;
   height: 30px;
