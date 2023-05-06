@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import axios from "axios";
 import "./WeatherSearch.css";
 import WeatherInfo from "./WeatherInfo";
-import ReactAnimatedWeather from "react-animated-weather";
 
 export default function WeatherSearch() {
   let [city, setCity] = useState(" ");
   const [weather, setWeather] = useState({});
   const [loaded, setLoaded] = useState(false);
+  const [allData, setAllData] = useState({});
   function changeCity(event) {
     event.preventDefault();
     setCity(event.target.value);
@@ -15,10 +15,13 @@ export default function WeatherSearch() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=edf069311acf2bebo10f4bbbc53249t3&units=metric`;
-    axios.get(url, { signal: AbortSignal.timeout(1) }).then(displayWeather);  }    
+    let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}
+        &key=edf069311acf2bebo10f4bbbc53249t3&units=metric`;
+    axios.get(url, { signal: AbortSignal.timeout(1000) }).then(displayWeather);
+  }
 
   function displayWeather(response) {
+    setAllData(response);
     setLoaded(true);
     setWeather({
       temperature: Math.round(response.data.daily[0].temperature.day),
@@ -49,7 +52,7 @@ export default function WeatherSearch() {
     return (
       <div className="container">
         {form}
-        <WeatherInfo data={weather} />
+        <WeatherInfo data={weather} allData={allData} />
         <p>
           Open source code by Catherine Glover, available on{" "}
           <a href="https://github.com/CathGlover/weather-react-shecodes-app">

@@ -3,18 +3,20 @@ import FormattedDate from "./FormattedDate";
 import "./WeatherForecast.css";
 import WeatherIcon from "./WeatherIcon";
 export default function WeatherForecastDay(event) {
-  return (<div className = "WeatherForecastDay">
-  <FormattedDate date={event.date} />
-    <span>
-      <WeatherIcon icon={event.icon} size={52} />
-    </span>
-    <span className="forecastTemperature">
-      <span className="forecastTemperatureMax">
-        {event.temperature.maximum}
+  console.log(event.forecast);
+  return (
+    <div className="WeatherForecastDay">
+      <div>
+        <WeatherIcon code={event.forecast.condition.icon} size={52} />
+      </div>
+      <span className="forecastTemperature">
+        <span className="forecastTemperatureMax">
+          {event.forecast.temperature.maximum}
+        </span>
+        <span className="forecastTemperatureMin">
+          {event.forecast.temperature.minimum}
+        </span>
       </span>
-      <span className="forecastTemperatureMin">
-        {event.temperature.minimimum}
-      </span>
-    </span>
-  </div>);
+    </div>
+  );
 }

@@ -1,35 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import WeatherIcon from "./WeatherIcon";
 import axios from "axios";
 import "./WeatherForecast.css";
 import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function WeatherForecast(event) {
-  let url = `https://api.shecodes.io/weather/v1/forecast?query=${event.data.data.cities}&key=edf069311acf2bebo10f4bbbc53249t3&units=metric`;
-  axios.get(url, { signal: AbortSignal.timeout(1) }).then(handleResponse);
+  console.log(event.data.allData.data.daily);
 
-  const [forecast, setForecast] = useState({});
-  const [loaded, setLoaded] = useState(false);
-
-  function handleResponse(response) {
-    setForecast(response.data.daily);
-    setLoaded(true);
-    console.log(response);
-  }
-
+  let forecast = event.data.allData.data.daily;
   return (
     <div className="WeatherForecast">
       <div className="row">
-        {forecast.map(function (dailyForecast, index) {
-          if (index < 5 || index > 0) {
-            return (
-              <div className="col" key={index}>
-                <WeatherForecastDay data={dailyForecast} />
-              </div>
-            );
-          }
-        })}
-        ;
+        <div className="col">
+          <div>
+          </div>
+          <WeatherForecastDay forecast={forecast[1]} />
+        </div>
+        <div className="col">
+          <WeatherForecastDay forecast={forecast[2]} />
+        </div>
+        <div className="col">
+          <WeatherForecastDay forecast={forecast[3]} />
+        </div>
+        <div className="col">
+          <WeatherForecastDay forecast={forecast[4]} />
+        </div>
       </div>
     </div>
   );
