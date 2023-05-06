@@ -20,9 +20,6 @@ export default function WeatherForecast(event) {
         <div className="col">
           <WeatherForecastDay forecast={forecast[4]} />
         </div>
-        <div className="col">
-          <WeatherForecastDay forecast={forecast[5]} />
-        </div>
       </div>
     </div>
   );
