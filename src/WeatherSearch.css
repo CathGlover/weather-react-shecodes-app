@@ -36,6 +36,9 @@ body {
   border-color: none;
   background-color: #b5d4fe;
 }
+form {
+  text-align: left;
+}
 
 a {
   color: blue;
