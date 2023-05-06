@@ -3,4 +3,7 @@
   padding-left: 50px;
 }
 
-
+.App .Footer {
+  text-align: center;
+  padding: 10px;
+}

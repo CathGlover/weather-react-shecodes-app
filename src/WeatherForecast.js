@@ -1,11 +1,8 @@
 import React, { useState, useEffect } from "react";
-import WeatherIcon from "./WeatherIcon";
-import axios from "axios";
 import "./WeatherForecast.css";
 import WeatherForecastDay from "./WeatherForecastDay";
 
 export default function WeatherForecast(event) {
-
   let forecast = event.data.allData.data.daily;
   return (
     <div className="WeatherForecast">
