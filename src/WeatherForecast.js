@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./WeatherForecast.css";
 import WeatherForecastDay from "./WeatherForecastDay";
+import "./WeatherSearch.css";
 
 export default function WeatherForecast(event) {
   let forecast = event.data.allData.data.daily;
@@ -22,9 +23,6 @@ export default function WeatherForecast(event) {
         </div>
         <div className="col">
           <WeatherForecastDay forecast={forecast[5]} />
-        </div>
-        <div className="col">
-          <WeatherForecastDay forecast={forecast[6]} />
         </div>
       </div>
     </div>

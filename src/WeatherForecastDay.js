@@ -15,7 +15,7 @@ export default function WeatherForecastDay(event) {
     <div className="WeatherForecastDay">
       {createDate()}
       <div>
-        <WeatherIcon code={event.forecast.condition.icon} size={48} />
+        <WeatherIcon code={event.forecast.condition.icon} size={38} />
       </div>
       <span className="forecastTemperature">
         <span className="forecastTemperatureMax">
