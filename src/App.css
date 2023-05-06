@@ -1,9 +1,15 @@
 .App {
   text-align: left;
-  padding-left: 50px;
+  max-width: 1200px;
 }
 
 .App .Footer {
   text-align: center;
   padding: 10px;
+}
+
+@media (max-width < 600px) {
+  .App {
+    max-width: 600px;
+  }
 }
