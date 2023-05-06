@@ -5,7 +5,7 @@ body {
 }
 .container {
   border: 1px solid;
-  max-width: 600px;
+  max-width: 500px;
   margin: 0 auto;
   border-radius: 10px;
   text-align: center;
@@ -40,10 +40,4 @@ body {
 a {
   color: blue;
   text-decoration: none;
-}
-
-@media (max-width > 600px) {
-  container {
-    max-width: 400px;
-  }
 }
