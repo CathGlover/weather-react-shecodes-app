@@ -3,7 +3,7 @@ import axios from "axios";
 import "./WeatherSearch.css";
 import WeatherInfo from "./WeatherInfo";
 export default function WeatherSearch() {
-  let [city, setCity] = useState(" ");
+  let [city, setCity] = useState("");
   const [weather, setWeather] = useState({});
   const [loaded, setLoaded] = useState(false);
   const [allData, setAllData] = useState({});
@@ -53,7 +53,7 @@ export default function WeatherSearch() {
         {form}
         <WeatherInfo data={weather} allData={allData} />
       </div>
-    )
+    );
   } else {
     const url = `https://api.shecodes.io/weather/v1/forecast?query=London
         &key=edf069311acf2bebo10f4bbbc53249t3&units=metric`;

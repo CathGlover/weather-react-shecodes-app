@@ -1,11 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import "./WeatherSearch.css";
 import FormattedDate from "./FormattedDate";
 import WeatherIcon from "./WeatherIcon";
 import "./WeatherSearch.css";
 import WeatherTemperature from "./WeatherTemperature";
-import Moment from "react-moment";
-import "moment-timezone";
 import WeatherForecast from "./WeatherForecast";
 
 export default function weatherInfo(props) {
@@ -34,7 +32,7 @@ export default function weatherInfo(props) {
           </p>
         </div>
       </div>
-      <WeatherForecast data={props} allData ={props.allData} />
+      <WeatherForecast data={props} allData={props.allData} />
     </div>
   );
 }
