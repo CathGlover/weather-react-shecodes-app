@@ -6,6 +6,7 @@
 .App .Footer {
   text-align: center;
   padding: 10px;
+  color: black;
 }
 
 @media (max-width < 700px) {
