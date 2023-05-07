@@ -19,6 +19,11 @@ body {
   padding: 20px;
 }
 
+.container a {
+  text-decoration: underline;
+  color: orange;
+}
+
 .search-bar {
   height: 30px;
   border-radius: 4px;
